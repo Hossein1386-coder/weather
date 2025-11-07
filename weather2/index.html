@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>آب هوا انیمه‌ای</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="night">
+  <div class="wrap">
+
+    <!-- left: anime scene -->
+    <section class="card scene" aria-label="وضعیت آب و هوا">
+      <div class="aurora aurora-1" aria-hidden="true"></div>
+      <div class="aurora aurora-2" aria-hidden="true"></div>
+      <div class="sky" aria-hidden="true">
+        <svg class="cloud c1" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg"><g fill="#fff"><ellipse cx="30" cy="20" rx="28" ry="14"/><ellipse cx="70" cy="16" rx="22" ry="12"/><ellipse cx="110" cy="22" rx="36" ry="16"/></g></svg>
+        <svg class="cloud c2" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg"><g fill="#fff"><ellipse cx="30" cy="20" rx="24" ry="12"/><ellipse cx="60" cy="14" rx="16" ry="10"/><ellipse cx="96" cy="22" rx="30" ry="14"/></g></svg>
+        <div class="sparkles">
+          <svg viewBox="0 0 120 120" width="120" height="120"><g fill="none" stroke="white" stroke-opacity="0.9"><circle cx="20" cy="20" r="1.2"/><circle cx="40" cy="10" r="0.9"/><circle cx="60" cy="30" r="1.4"/></g></svg>
+        </div>
+      </div>
+
+      <div class="character-box">
+        <div class="avatar" id="animeAvatar" title="آواتار انیمه">
+          <!-- simple kawaii SVG face, replace with your art if desired -->
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffd36b"/><stop offset="1" stop-color="#ff7ab6"/></linearGradient>
+            </defs>
+            <rect x="0" y="0" width="120" height="120" rx="14" fill="url(#g)" />
+            <circle cx="60" cy="50" r="34" fill="#fff" opacity="0.06" />
+            <ellipse cx="44" cy="52" rx="6" ry="9" fill="#081124" />
+            <ellipse cx="76" cy="52" rx="6" ry="9" fill="#081124" />
+            <path d="M44 72 q16 12 32 0" stroke="#081124" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div>
+          <div class="place" id="place">—</div>
+          <div class="country" id="country">—</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="big-temp">
+          <div>
+            <div class="temp-value" id="temp">--</div>
+            <div class="temp-unit" id="unit">°C</div>
+            <div class="desc" id="desc">—</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <input id="cityInput" type="text" placeholder="نام شهر را وارد کنید — مانند Tehran" aria-label="city input" />
+          <button class="btn" id="searchBtn">جستجو</button>
+          <button class="ghost" id="toggleUnit">تغییر °C/°F</button>
+          <button class="ghost theme" id="themeBtn" title="تغییر فضای بصری">تغییر تم</button>
+          <div style="flex:1"></div>
+          <button class="ghost" id="locBtn">استفاده از موقعیت</button>
+        </div>
+      </div>
+
+      <div class="floaty breathe"> <!-- animated floating panel -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.5 3 3.5.5-2.5 2 0.7 3.5L12 10l-3.2 1.5.7-3.5L6 6.5 9.5 6 12 2z"/></svg>
+      </div>
+
+    </section>
+
+    <!-- right: details -->
+    <aside class="card info" aria-label="جزئیات آب و هوا">
+      <div class="now-row">
+        <div class="icon" id="iconWrap">
+          <svg viewBox="0 0 100 100" id="iconSVG" width="60" height="60"></svg>
+        </div>
+        <div>
+          <div class="metric" id="metricTemp">--°</div>
+          <div class="sub" id="feels">—</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="sub">رطوبت</div><strong id="humidity">—</strong></div>
+        <div class="stat"><div class="sub">باد</div><strong id="wind">—</strong></div>
+        <div class="stat"><div class="sub">فشار</div><strong id="pressure">—</strong></div>
+      </div>
+
+      <div>
+        <div class="sub">پیش‌بینی ۳ روزه</div>
+        <div class="forecast" id="forecast"></div>
+      </div>
+
+      <div class="mood" aria-live="polite">
+        <div class="sub">مود پیشنهادی</div>
+        <div class="mood-title" id="moodTitle">—</div>
+        <p class="mood-body" id="moodBody">وقتی اطلاعات آب‌وهوا برسد، پیشنهاد ویژه نمایش داده می‌شود.</p>
+      </div>
+    </aside>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
