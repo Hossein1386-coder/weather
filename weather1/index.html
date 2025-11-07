@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه آب و هوا</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="weather-background">
+            <div class="background-gradient" id="bgGradient"></div>
+            <div class="particles-container" id="particlesContainer"></div>
+        </div>
+
+        <div class="content">
+            <div class="controls">
+                <div class="search-container">
+                    <form class="search-form" id="searchForm" role="search" aria-label="جستجوی شهر">
+                        <input 
+                            type="text" 
+                            class="search-input" 
+                            id="searchInput"
+                            placeholder="جستجوی شهر..."
+                            aria-label="نام شهر را وارد کنید"
+                            autocomplete="off"
+                        >
+                        <button type="submit" class="search-button" aria-label="جستجو">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <button class="toggle-button" id="toggleNight" aria-pressed="false" aria-label="تغییر حالت شب/روز">
+                    <svg class="icon" id="nightIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="statusMessage" class="status-message" aria-live="polite" aria-atomic="true"></div>
+
+            <div class="city-buttons" id="cityButtons" role="group" aria-label="شهرهای پیشنهادی"></div>
+
+            <div class="weather-card">
+                <div class="city-name" id="cityName">تهران</div>
+                
+                <div class="weather-main">
+                    <div class="weather-icon" id="weatherIcon"></div>
+                    
+                    <div class="temperature">
+                        <div>
+                            <span class="temp-number" id="temperature">24</span>
+                            <span class="temp-unit">°</span>
+                        </div>
+                        <div class="condition-text" id="condition">آفتابی</div>
+                    </div>
+                </div>
+
+                <div class="high-low">
+                    <div class="high-low-item">
+                        <div class="high-low-label">بیشینه</div>
+                        <div class="high-low-value" id="high">28°</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="high-low-item">
+                        <div class="high-low-label">کمینه</div>
+                        <div class="high-low-value" id="low">18°</div>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <svg class="icon detail-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <div class="detail-label">رطوبت</div>
+                        <div class="detail-value" id="humidity">45%</div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <svg class="icon detail-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                        <div class="detail-label">باد</div>
+                        <div class="detail-value" id="windSpeed">12 km/h</div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <svg class="icon detail-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                        <div class="detail-label">دید</div>
+                        <div class="detail-value" id="visibility">10 km</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-section">
+                <div class="forecast-title">پیش‌بینی هفتگی</div>
+                <div class="forecast-grid" id="forecastGrid"></div>
+            </div>
+
+            <div class="footer-text">
+                جلوه‌های واقعی آب و هوا با انیمیشن‌های پیشرفته
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
